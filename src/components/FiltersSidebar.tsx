@@ -3,13 +3,12 @@ import { Checkbox } from './Checkbox';
 import { filterSections, priceRange } from '@/data/filters';
 
 interface ColorSwatchProps {
-  color: string;
   label: string;
   selected?: boolean;
   onClick?: () => void;
 }
 
-const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, label, selected, onClick }) => {
+const ColorSwatch: React.FC<ColorSwatchProps> = ({ label, selected, onClick }) => {
   const colorMap: { [key: string]: string } = {
     'ροζ': 'bg-pink-400',
     'άσπρο': 'bg-white border-2 border-gray-300',
@@ -150,7 +149,6 @@ export const FiltersSidebar: React.FC = () => {
               {section.options.map(option => (
                 <ColorSwatch
                   key={option.id}
-                  color={option.id}
                   label={option.label}
                   selected={selectedColors.includes(option.id)}
                   onClick={() => handleColorChange(option.id)}
